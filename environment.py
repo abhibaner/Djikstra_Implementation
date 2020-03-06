@@ -27,7 +27,7 @@ def coll_ellipse(position):
 		return True
 	else:
 		return False
-
+'''
 def area(x1, y1, x2, y2, x3, y3):
 	return abs((x1 * (y2 - y3) + x2 * (y3 - y1)+ x3 * (y1 - y2)) / 2.0)
 
@@ -41,8 +41,6 @@ def isInside(x1, y1, x2, y2, x3, y3, x, y):
 		return True
 	else:
 		return False
-
-
 
 def coll_rho1(position):
 	p_x = position[1]
@@ -72,7 +70,8 @@ def coll_rec1(position):
 def coll_rec2(position):
 	p_x = position[1]
 	p_y = position[0]
-	if isInside(95-int(75*math.cos(math.pi/6))+int(10*math.cos(math.pi/3)),170-int(75*math.sin(math.pi/6))-int(10*math.sin(math.pi/3)),95+int(10*math.cos(math.pi/3)),170-int(10*math.sin(math.pi/3))\
+	if isInside(95-int(75*math.cos(math.pi/6))+int(10*math.cos(math.pi/3)),170-int(75*math.sin(math.pi/6))-int(10*math.sin(math.pi/3))\
+		,95+int(10*math.cos(math.pi/3)),170-int(10*math.sin(math.pi/3))\
 		,95-int(75*math.cos(math.pi/6)),170-int(75*math.sin(math.pi/6)),p_x,p_y):
 		return True
 	else:
@@ -110,27 +109,92 @@ def coll_poly4(position):
 		return True
 	else:
 		return False
+'''
+def coll_rhom(position):
+	p_x = position[1]
+	p_y = position[0]
+	m_1,c_1 = -0.6,295.0
+	m_2,c_2 = 0.6,55.0
+	m_3,c_3 = -0.6,325.0
+	m_4,c_4 = 0.6,25.0
+	
+	if p_y - p_x*m_1>c_1 and p_y - p_x*m_2<c_2 and p_y - p_x*m_3<c_3 and p_y - p_x*m_4>c_4:
+		return True
+	else:
+		return False
+
+def coll_rect(position):
+	p_x = position[1]
+	p_y = position[0]
+	m_1,c_1 = -1.6,322.0
+	m_2,c_2 = 0.578125,104.1875
+	m_3,c_3 = -1.6,182.6
+	m_4,c_4 = 0.578125,115.078125
+	
+	if p_y - p_x*m_1<c_1 and p_y - p_x*m_2>c_2 and p_y - p_x*m_3>c_3 and p_y - p_x*m_4<c_4:
+		return True
+	else:
+		return False
+
+def coll_poly1(position):
+	p_x = position[1]
+	p_y = position[0]
+	m_1,c_1 = -1.0,100.0
+	m_2,c_2 = 1.2,-10.0
+	m_3,c_3 = -1.2,170.0
+	m_4,c_4 = 1.4,-90.0
+	m_5,c_5 = 0.0,15.0
+	m_6,c_6 = -13.0,340.0
+	
+	if p_y - p_x*m_1>c_1 and p_y - p_x*m_2<c_2 and p_y - p_x*m_3<c_3 and p_y - p_x*m_4>c_4 and p_y - p_x*m_5>c_5 and p_y - p_x*m_6>c_6:
+		return True
+	else:
+		return False
+
+def coll_poly2(position):
+	p_x = position[1]
+	p_y = position[0]
+	m_1,c_1 = -1.0,100.0
+	m_2,c_2 = 1.2,-10.0
+	m_3,c_3 = -1.2,170.0
+	m_4,c_4 = 1.4,-90.0
+	m_5,c_5 = 0.0,15.0
+	m_6,c_6 = -13.0,340.0
+	
+	if p_y - p_x*m_1<=c_1 and p_y - p_x*m_2<c_2 and p_y - p_x*m_3<c_3 and p_y - p_x*m_4>c_4 and p_y - p_x*m_5>c_5 and p_y - p_x*m_6>c_6:
+		return True
+	else:
+		return False
+
+def coll_poly3(position):
+	p_x = position[1]
+	p_y = position[0]
+	m_1,c_1 = -1.0,100.0
+	m_2,c_2 = 1.2,-10.0
+	m_3,c_3 = -1.2,170.0
+	m_4,c_4 = 1.4,-90.0
+	m_5,c_5 = 0.0,15.0
+	m_6,c_6 = -13.0,340.0
+	
+	if p_y - p_x*m_1<=c_1 and p_y - p_x*m_2>=c_2 and p_y - p_x*m_3<c_3 and p_y - p_x*m_4>c_4 and p_y - p_x*m_5>c_5 and p_y - p_x*m_6>c_6:
+		return True
+	else:
+		return False
 
 def coll_check(position):
-	if coll_rho1(position):
+	if coll_rhom(position):
 		return True
-	elif coll_rho2(position):
+	elif coll_circle(position):
+		return True
+	elif coll_ellipse(position):
+		return True
+	elif coll_rect(position):
 		return True
 	elif coll_poly1(position):
 		return True
 	elif coll_poly2(position):
 		return True
 	elif coll_poly3(position):
-		return True
-	elif coll_poly4(position):
-		return True
-	elif coll_circle(position):
-		return True
-	elif coll_ellipse(position):
-		return True
-	elif coll_rec1(position):
-		return True
-	elif coll_rec2(position):
 		return True
 	else:
 		return False
@@ -324,7 +388,7 @@ def plan_algo(start,goal,imap):
 
 				if n[0][0]==goal[0] and n[0][1]==goal[1]:
 					print("Goal Reached")
-					return new_node,imap
+					return new_node,imap,visited
 				#print(current.state)
 				#imap = color_pixel(imap, current.state)
 				#imap[start[1], start[0]] = [255, 0, 0]
@@ -350,7 +414,7 @@ def plan_algo(start,goal,imap):
 			else:
 				continue
 
-	return None,None
+	return None,None,None
 
 
 
@@ -370,10 +434,19 @@ def main():
 				img[i][j] = WHITE
 
 			
-	start = [5,195]
-	goal = [295,5]
-	result,image = plan_algo(start,goal,img)
+	start = [5,5]
+	goal = [150,5]
+	result,image,vis = plan_algo(start,goal,img)
+	
 	n_list = track_back(result)
+	for v in vis:
+		x_v = v[1]
+		y_v = v[0]
+		image[x_v,y_v] = [255,0,255]
+		resized_new = cv2.resize(image, None, fx=4, fy=4, interpolation=cv2.INTER_CUBIC)
+		cv2.imshow("Figure", resized_new)
+		cv2.waitKey(100)
+
 	for elem in n_list:
 		x = elem.state[1]
 		y = elem.state[0]
@@ -381,6 +454,8 @@ def main():
 		resized_new = cv2.resize(image, None, fx=4, fy=4, interpolation=cv2.INTER_CUBIC)
 		cv2.imshow("Figure", resized_new)
 		cv2.waitKey(100)
+	img[195][5] = [255, 0, 0]
+	img[195][20] = [0, 0, 255]
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
 	
