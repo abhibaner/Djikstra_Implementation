@@ -60,6 +60,25 @@ def coll_rho2(position):
 	else:
 		return False
 
+def coll_rec1(position):
+	p_x = position[1]
+	p_y = position[0]
+	if isInside(95,170,95+int(10*math.cos(math.pi/3)),170-int(10*math.sin(math.pi/3))\
+		,95-int(75*math.cos(math.pi/6)),170-int(75*math.sin(math.pi/6)),p_x,p_y):
+		return True
+	else:
+		return False
+
+def coll_rec2(position):
+	p_x = position[1]
+	p_y = position[0]
+	if isInside(95-int(75*math.cos(math.pi/6))+int(10*math.cos(math.pi/3)),170-int(75*math.sin(math.pi/6))-int(10*math.sin(math.pi/3)),95+int(10*math.cos(math.pi/3)),170-int(10*math.sin(math.pi/3))\
+		,95-int(75*math.cos(math.pi/6)),170-int(75*math.sin(math.pi/6)),p_x,p_y):
+		return True
+	else:
+		return False
+
+
 def coll_poly1(position):
 	p_x = position[1]
 	p_y = position[0]
@@ -108,6 +127,10 @@ def coll_check(position):
 	elif coll_circle(position):
 		return True
 	elif coll_ellipse(position):
+		return True
+	elif coll_rec1(position):
+		return True
+	elif coll_rec2(position):
 		return True
 	else:
 		return False
@@ -346,7 +369,7 @@ def main():
 			else:
 				img[i][j] = WHITE
 
-
+			
 	start = [5,195]
 	goal = [295,5]
 	result,image = plan_algo(start,goal,img)
@@ -360,6 +383,7 @@ def main():
 		cv2.waitKey(100)
 	cv2.waitKey(0)
 	cv2.destroyAllWindows()
+	
 	#cv2.imshow('Environment',img)
 	#cv2.waitKey(0)
 if __name__ == '__main__':
