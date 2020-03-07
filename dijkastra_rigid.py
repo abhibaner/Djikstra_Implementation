@@ -343,7 +343,7 @@ def main():
 
 	BLACK = (0,0,0)
 	WHITE = (255,255,255)
-	crader = 10
+	#crader = 10
 
 	for i in range(201):
 		for j in range(301):
@@ -357,8 +357,8 @@ def main():
 				imager.append([j,i])
 
 			
-	start = [5,5]
-	goal = [100,5]
+	#start = [5,5]
+	#goal = [100,5]
 	result,image,vis = plan_algo(start,goal,img,crader)
 	
 	n_list = track_back(result)
