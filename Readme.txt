@@ -1,9 +1,18 @@
 ENPM661-Project 2
+
+Abhishek Banerjee
+Amoghvarsha Prasanna
+
 Dijkstra Algorithm Implementation
 
 In this project the Dijkstra algorithm has been implemented on a point and rigid robot.
 Point robot file: *dijkastra_point.py*
 Rigid Robot file: *dijkastra_rigid.py*
+
+External dependencies:
+Pygame. To install type command:
+
+pip install pygame
 
 
 Steps to run the program:
