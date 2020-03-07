@@ -37,8 +37,8 @@ def coll_rhom(position,crad):
 	m_3,c_3 = -0.6,325.0
 	m_4,c_4 = 0.6,25.0
 	
-	if p_y - p_x*m_1>(c_1+crad*math.cos(math.atan(m_1))) and p_y - p_x*m_2<(c_2+crad*math.cos(math.atan(m_2)))\
-    and p_y - p_x*m_3<(c_3+crad*math.cos(math.atan(m_3))) and p_y - p_x*m_4>(c_4+crad*math.cos(math.atan(m_4))):
+	if p_y - p_x*m_1>(c_1-crad*math.cos(math.atan(m_1))) and p_y - p_x*m_2<(c_2+crad*math.cos(math.atan(m_2)))\
+    and p_y - p_x*m_3<(c_3+crad*math.cos(math.atan(m_3))) and p_y - p_x*m_4>(c_4-crad*math.cos(math.atan(m_4))):
 		return True
 	else:
 		return False
@@ -51,7 +51,7 @@ def coll_rect(position,crad):
 	m_3,c_3 = -1.6,182.6
 	m_4,c_4 = 0.578125,115.078125
 	
-	if p_y - p_x*m_1<(c_1+crad*math.cos(math.atan(m_1))) and p_y - p_x*m_2>(c_2+crad*math.cos(math.atan(m_2))) and p_y - p_x*m_3>(c_3+crad*math.cos(math.atan(m_3)))\
+	if p_y - p_x*m_1<(c_1+crad*math.cos(math.atan(m_1))) and p_y - p_x*m_2>(c_2-crad*math.cos(math.atan(m_2))) and p_y - p_x*m_3>(c_3-crad*math.cos(math.atan(m_3)))\
     and p_y - p_x*m_4<(c_4+crad*math.cos(math.atan(m_4))):
 		return True
 	else:
